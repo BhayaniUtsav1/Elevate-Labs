@@ -1,0 +1,94 @@
+  -Phishing Email Analysis Report-
+
+ -1. Sample Phishing Email (Text Format)-
+
+
+From: PayPal <service@paypa1.com>
+Subject: Urgent Action Required: Account Suspension Notice
+
+Dear Customer,
+
+We detected suspicious activity in your PayPal account. For your protection, your account has been temporarily suspended.
+
+To restore access, please verify your identity by clicking the link below:
+→ https://paypal.com-security-alerts.co/verify
+
+Failure to do so within 24 hours will result in permanent suspension of your account.
+
+Thank you for your prompt attention.
+
+Sincerely,
+PayPal Security Team
+
+---
+
+ -2. Sender's Email Address (Spoofing Check)-
+
+ -Email Shown:- `service@paypa1.com`
+ -Issue:- Looks like “PayPal” but the domain is -“paypa1.com”- (with the number "1" instead of the letter "l") — a -common spoofing tactic-.
+
+---
+
+ -3. Header Analysis (Using Free Tool)-
+
+Tool Used: [https://mxtoolbox.com/EmailHeaders.aspx](https://mxtoolbox.com/EmailHeaders.aspx)
+ -Findings:-
+
+* SPF: -Fail-
+* DKIM: -Fail-
+* Return-Path: `xyz@anotherdomain.ru` (suspicious mismatch)
+* Received from: An IP address traced back to -Russia-, not the actual PayPal server
+
+---
+
+ -4. Suspicious Links or Attachments-
+
+ -Link Text:- `https://paypal.com-security-alerts.co/verify`
+ -Real URL:- Not PayPal’s official domain. A phishing domain meant to -harvest login credentials-.
+
+---
+
+ -5. Urgent or Threatening Language-
+
+ "Urgent Action Required"
+ "Failure to do so within 24 hours will result in permanent suspension"
+ -Tactic:- Fear and urgency used to pressure quick action.
+
+---
+
+ -6. Mismatched URLs-
+
+ Hovering shows:
+
+* Text shows -paypal.com-, but real link is -paypal.com-security-alerts.co- (fake domain)
+   -Red Flag:- Classic mismatch meant to mislead.
+
+---
+
+ -7. Spelling/Grammar Errors-
+
+* "For your protection, your account has been temporarily suspended." (Too generic)
+* Odd spacing, inconsistent formatting.
+* “spe ling” and punctuation feel automated or template-like.
+
+---
+
+ -8. Summary of Phishing Traits Found-
+
+| Trait                          | Observation                               |
+| ------------------------------ | ----------------------------------------- |
+| -Spoofed Sender Address-     | `paypa1.com` instead of `paypal.com`      |
+| -Header Discrepancy-         | SPF/DKIM failed, unusual return-path      |
+| -Suspicious Link-            | Misleading domain – phishing trap         |
+| -Urgent Language-            | Threat of suspension if not clicked       |
+| -Mismatched URLs-            | Hover text vs real URL mismatch           |
+| -Grammar/Spelling Errors-    | Slight inconsistencies and templated feel |
+| -Generic Greeting-           | “Dear Customer” — no personalized info    |
+| -Unusual Sender IP Location- | From a non-PayPal region (Russia)         |
+
+---
+
+ -Conclusion:-
+
+The analyzed email demonstrates -multiple signs of phishing-, including -spoofed addresses, malicious links, urgent threats, and header anomalies-. Users should -never click on links or respond- to such emails. Awareness and header analysis tools are crucial in -email threat detection-.
+
